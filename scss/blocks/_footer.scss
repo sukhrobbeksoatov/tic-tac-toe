@@ -13,4 +13,17 @@
   font-size: 20px;
   font-weight: 600;
   display: inline-block;
+  transition: font-size .5s ease, padding .5s ease, border-radius .5s ease;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 7px 14px;
+   }
+ 
+   @media only screen and (max-width: 465px) {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+   }
 }

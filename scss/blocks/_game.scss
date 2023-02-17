@@ -1,5 +1,4 @@
 .game-wrapper {
-  width: 500px;
   max-height: 700px;
   width: 100%;
   user-select: none;
@@ -9,7 +8,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 20px;  
+  margin-bottom: 20px;
+
+  @media only screen and (max-width: 768px) {
+   gap: 15px;
+  }
+
+  @media only screen and (max-width: 465px) {
+    gap: 10px;
+  }
 }
 
 .game-cells {
@@ -28,6 +35,14 @@
       height: 136px;
       transform: translateY(4px) scaleY(0.98);
       background-image: url("../images/x.svg");
+
+      @media only screen and (max-width: 768px) {
+        height: 106px;
+      }
+
+      @media only screen and (max-width: 465px) {
+        height: 86px;
+      }
     }
 
     &.active-o {
@@ -36,5 +51,25 @@
       transform: translateY(4px) scaleY(0.98);
       background-image: url("../images/o.svg");
       margin-bottom: 4px;
+
+      @media only screen and (max-width: 768px) {
+        height: 106px;
+      }
+
+      @media only screen and (max-width: 465px) {
+        height: 86px;
+      }
     }
+
+      
+  @media only screen and (max-width: 768px) {
+    width: 110px;
+    height: 110px;
+    background-size: 44px;
+  }
+
+  @media only screen and (max-width: 465px) {
+    width: 90px;
+    height: 90px;
+  }
 }
