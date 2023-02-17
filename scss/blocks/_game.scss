@@ -1,0 +1,40 @@
+.game-wrapper {
+  width: 500px;
+  max-height: 700px;
+  width: 100%;
+  user-select: none;
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;  
+}
+
+.game-cells {
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -8px 0 #10212a;
+  height: 140px;
+  width: 140px;
+  background: no-repeat center / 64px;
+  background-color: #1f3641;
+
+    &.active-x {
+      box-shadow: inset 0 -4px 0 #10212a;
+      height: 136px;
+      transform: translateY(4px) scaleY(0.98);
+      background-image: url("../images/x.svg");
+    }
+
+    &.active-o {
+      box-shadow: inset 0 -4px 0 #10212a;
+      height: 136px;
+      transform: translateY(4px) scaleY(0.98);
+      background-image: url("../images/o.svg");
+      margin-bottom: 4px;
+    }
+}
