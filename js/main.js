@@ -1,10 +1,14 @@
 const elCells = document.querySelectorAll("[data-cell]");
 const elTurnText = document.querySelector("[data-turn-text]");
 const elResultText = document.querySelector("[data-result]");
+const elScoreX = document.querySelector("[data-score-x]");
+const elScoreO = document.querySelector("[data-score-o]");
 
 let arr = ["", "", "", "", "", "", "", "", ""];
 let winner = "";
-const symbols = ["x", "o"];
+let scoreX = 0;
+let scoreO = 0;
+const symbols = ["x", "0"];
 const randomNum = Math.trunc(Math.random() * symbols.length);
 
 let turn = symbols[randomNum];
@@ -14,6 +18,7 @@ elTurnText.textContent = `turn: ${turn}`;
 document.addEventListener("click", (evt) => {
   clickCell(evt);
   restartClick(evt);
+  scoreRestartClick(evt);
 });
 
 // Click cell
@@ -28,7 +33,7 @@ function clickCell(evt) {
   if (winner === "") {
     arr[el.dataset.cellId] = turn;
     el.classList.add(turn === "x" ? "active-x" : "active-o");
-  } else return;
+  } else if (winner !== "") return;
   if (
     (arr[0] === arr[1] && arr[1] === arr[2] && arr[2] !== "") ||
     (arr[3] === arr[4] && arr[4] === arr[5] && arr[5] !== "") ||
@@ -39,14 +44,18 @@ function clickCell(evt) {
     (arr[0] === arr[4] && arr[4] === arr[8] && arr[8] !== "") ||
     (arr[2] === arr[4] && arr[4] === arr[6] && arr[6] !== "")
   ) {
-    winner = arr[0];
+    winner = turn;
+    winner === "x" ? (scoreX += 1) : (scoreO += 1);
+    console.log(`x: ${scoreX}, o: ${scoreO}`);
+    elScoreX.textContent = `X: ${scoreX}`;
+    elScoreO.textContent = `0: ${scoreO}`;
     elResultText.textContent = `Winner: ${turn}`;
     return;
   } else {
     elResultText.textContent = "No one has won yet!";
   }
-  elTurnText.textContent = turn === "x" ? "turn: o" : "turn: x";
-  turn = turn === "x" ? "o" : "x";
+  elTurnText.textContent = turn === "x" ? "turn: 0" : "turn: x";
+  turn = turn === "x" ? "0" : "x";
 }
 
 // Click restart
@@ -59,6 +68,17 @@ function restartClick(evt) {
   winner = "";
   elResultText.textContent = `Winner: -`;
   arr = ["", "", "", "", "", "", "", "", ""];
+}
+
+// Score click restart
+function scoreRestartClick(evt) {
+  const el = evt.target.closest("[data-score-restart]");
+
+  if (!el) return;
+  scoreO = 0;
+  scoreX = 0;
+  elScoreX.textContent = `X: ${scoreX}`;
+  elScoreO.textContent = `0: ${scoreO}`;
 }
 
 // set ID

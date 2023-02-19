@@ -7,7 +7,7 @@
     <title>Tic Tac Toe</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,13 +27,13 @@
       <div class="game">
         <div class="game-wrapper">
           <h2 class="game__title">
-            <img src="images/x.svg" alt="x"><span>VS</span>
-            <img src="images/o.svg" alt="0">
+            <img src="images/x.svg" alt="x" /><span>VS</span>
+            <img src="images/o.svg" alt="0" />
           </h2>
           <header class="header">
             <div class="header__turn" data-turn-text>turn:</div>
             <button class="header__restart" data-restart>
-              <img src="images/icon-restart.svg" alt="" />
+              <img src="images/icon-restart.svg" alt="icon restart" />
             </button>
           </header>
           <section class="game-board">
@@ -49,6 +49,17 @@
           </section>
           <footer class="footer">
             <p class="footer__result" data-result>Winner: -</p>
+            <div class="footer__score-restart-wrapper">
+              <div class="footer__score-text-wrapper">
+                <span class="footer__score-text">SCORE:</span>
+                <span class="footer__score-text" data-score-x>X: 0</span>
+                <span class="footer__score-text" data-score-o>0: 0</span>
+              </div>
+              <button class="footer__score-restart" data-score-restart>
+                <span>Reset score</span>
+                <img src="images/icon-restart.svg" alt="icon restart">
+              </button>
+            </div>
           </footer>
         </div>
       </div>
