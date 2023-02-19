@@ -46,7 +46,6 @@ function clickCell(evt) {
   ) {
     winner = turn;
     winner === "x" ? (scoreX += 1) : (scoreO += 1);
-    console.log(`x: ${scoreX}, o: ${scoreO}`);
     elScoreX.textContent = `X: ${scoreX}`;
     elScoreO.textContent = `0: ${scoreO}`;
     elResultText.textContent = `Winner: ${turn}`;
