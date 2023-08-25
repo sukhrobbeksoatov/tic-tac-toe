@@ -19,6 +19,7 @@ let turn = symbols[randomNum];
 elTurnText.textContent = `turn: ${turn}`;
 elCells.forEach((btn, i) => (btn.dataset.cellId = i));
 
+// getWinner
 const getWinner = arr => {
   // x-row, 3 lines
   if (arr[0] === arr[1] && arr[1] === arr[2] && arr[2] !== "") return true;
@@ -54,8 +55,8 @@ const clickCell = evt => {
 
     elScoreX.textContent = `X: ${scoreX}`;
     elScoreO.textContent = `0: ${scoreO}`;
-
     elResultText.textContent = `Winner: ${turn}`;
+
     return;
   } else elResultText.textContent = "No one has won yet!";
 
